@@ -111,25 +111,29 @@ a {
   }
 }
 
-.desc {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  margin-left: 20px;
-}
-
-.desc-item {
-  font-size: 30px;
-  font-family: 'Lucida Sans Typewriter';
-  position: relative;
-  color: white;
-  z-index: 2;
-}
-
 .photogrid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 2rem;
+}
+
+.img-container {
+	z-index: 1;
+	position: relative;
+}
+
+.album-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 80px;
+	color: #fff;
+	text-shadow: 0 0 1.5rem black;
+	font-family: "Yellowtail";
+  text-align: center; /* To center the text horizontally */
+  width: 30%; /* Optionally, make the text container the full width of the image */
 }
 
 .photo {
