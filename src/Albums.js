@@ -1,7 +1,9 @@
 import * as React from 'react';
 const { useEffect, useState } = React
 import AWS from 'aws-sdk';
-export function App() {
+import { fetchImages, downloadImage } from "./ImageFetcher";
+
+export function Albums() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
 
@@ -21,49 +23,14 @@ export function App() {
     }
   }
 
-  const downloadImage = (key) => {
-     const params = {
-       Bucket: 'adrianboothphotos',
-       Key: key,
-     };
-     const s3 = new AWS.S3();
-     s3.getObject(params, (err, data) => {
-       if (err) {
-         console.error(err);
-       } else {
-         const imageSrc = `data:image/jpeg;base64,${data.Body.toString('base64')}`;
-         setImageSources((prevImageSources) => ({
-           ...prevImageSources,
-           [key]: imageSrc,
-         }));
-          console.log(imageSources)
-       }
-     });
-   };
-
   useEffect(() => {
-    const params = {
-     Bucket: 'adrianboothphotos',
-     Prefix: 'covers/',
-    };
-    AWS.config.update({
-     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-     region: 'eu-west-2',
-    });
-    const s3 = new AWS.S3();
-    console.log(s3)
-    s3.listObjectsV2(params, (err, data) => {
-     if (err) {
-       console.log("ERRORING")
-       console.error(err);
-     } else {
-       const images = data.Contents
-        .filter(object => object.Key.includes('.'))
-        .map(object => object.Key);
-       setImages(images.reduce((acc, key) => ({ ...acc, [key]: null }), {}));
-       images.forEach((key) => downloadImage(key));
-     }});
+    fetchImages(
+      'covers',
+      images,
+      setImages,
+      imageSources,
+      setImageSources
+    )
   }, []);
 
 

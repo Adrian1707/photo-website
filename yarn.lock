@@ -23,7 +23,7 @@
   "resolved" "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.23.2.tgz"
   "version" "7.23.2"
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.0.0-0 || ^8.0.0-0 <8.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.0", "@babel/core@^7.4.0 || ^8.0.0-0 <8.0.0", "@babel/core@^7.4.4":
+"@babel/core@^7.4.4":
   "integrity" "sha512-n7s51eWdaWZ3vGT2tD4T7J6eJs3QoBXydv7vkUM06Bf1cbVD2Kc2UrkzhiQwobfV7NwOnQXYL7UBJ5VPU+RGoQ=="
   "resolved" "https://registry.npmjs.org/@babel/core/-/core-7.23.2.tgz"
   "version" "7.23.2"
@@ -1078,7 +1078,7 @@
   "resolved" "https://registry.npmjs.org/@redis/bloom/-/bloom-1.2.0.tgz"
   "version" "1.2.0"
 
-"@redis/client@^1.0.0", "@redis/client@1.5.11":
+"@redis/client@1.5.11":
   "integrity" "sha512-cV7yHcOAtNQ5x/yQl7Yw1xf53kO0FNDTdDU6bFIMbW6ljB7U7ns0YRM+QIkpoqTAt6zK5k9Fq0QWlUbLcq9AvA=="
   "resolved" "https://registry.npmjs.org/@redis/client/-/client-1.5.11.tgz"
   "version" "1.5.11"
@@ -1106,6 +1106,11 @@
   "integrity" "sha512-IFjIgTusQym2B5IZJG3XKr5llka7ey84fw/NOYqESP5WUfQs9zz1ww/9+qoz4ka/S6KcGBodzlCeZ5UImKbscg=="
   "resolved" "https://registry.npmjs.org/@redis/time-series/-/time-series-1.0.5.tgz"
   "version" "1.0.5"
+
+"@remix-run/router@1.11.0":
+  "integrity" "sha512-BHdhcWgeiudl91HvVa2wxqZjSHbheSgIiDvxrF1VjFzBzpTtuDPkOdOi3Iqvc08kXtFkLjhbS+ML9aM8mJS+wQ=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.11.0.tgz"
+  "version" "1.11.0"
 
 "@types/node@*":
   "integrity" "sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w=="
@@ -1608,7 +1613,7 @@
   dependencies:
     "pako" "~1.0.5"
 
-"browserslist@^4.0.0", "browserslist@^4.1.0", "browserslist@^4.21.9", "browserslist@^4.22.1", "browserslist@>= 4.21.0":
+"browserslist@^4.0.0", "browserslist@^4.1.0", "browserslist@^4.21.9", "browserslist@^4.22.1":
   "integrity" "sha512-FEVc202+2iuClEhZhrWy6ZiAcRLvNMyYcxZ8raemul1DYVOVdFsbqckWLdsixQZCpJlwe77Z3UTalE7jsjnKfQ=="
   "resolved" "https://registry.npmjs.org/browserslist/-/browserslist-4.22.1.tgz"
   "version" "4.22.1"
@@ -4867,6 +4872,21 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+"react-router-dom@^6.18.0":
+  "integrity" "sha512-Ubrue4+Ercc/BoDkFQfc6og5zRQ4A8YxSO3Knsne+eRbZ+IepAsK249XBH/XaFuOYOYr3L3r13CXTLvYt5JDjw=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.18.0.tgz"
+  "version" "6.18.0"
+  dependencies:
+    "@remix-run/router" "1.11.0"
+    "react-router" "6.18.0"
+
+"react-router@6.18.0":
+  "integrity" "sha512-vk2y7Dsy8wI02eRRaRmOs9g2o+aE72YCx5q9VasT1N9v+lrdB79tIqrjMfByHiY5+6aYkH2rUa5X839nwWGPDg=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.18.0.tgz"
+  "version" "6.18.0"
+  dependencies:
+    "@remix-run/router" "1.11.0"
+
 "react@^18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
@@ -5043,7 +5063,7 @@
     "stealthy-require" "^1.1.1"
     "tough-cookie" "^2.3.3"
 
-"request@^2.34", "request@^2.88.0":
+"request@^2.88.0":
   "integrity" "sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw=="
   "resolved" "https://registry.npmjs.org/request/-/request-2.88.2.tgz"
   "version" "2.88.2"
