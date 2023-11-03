@@ -1,9 +1,8 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import AWS from 'aws-sdk';
 import { fetchImages, downloadImage } from "./ImageFetcher";
 
-export function Albums() {
+export default function Albums() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
 
@@ -23,6 +22,16 @@ export function Albums() {
     }
   }
 
+  function getAlbumName(input) {
+    const parts = input.split('/');
+    const lastPart = parts[parts.length - 1];
+    const fileName = lastPart.split('.')[0];
+
+    const formattedString = fileName.replace('_', ' ');
+
+    return formattedString;
+  }
+
   useEffect(() => {
     fetchImages(
       'covers',
@@ -36,24 +45,24 @@ export function Albums() {
 
   return (
     <div>
-      <header class="header">
-        <h1 class="logo"><a href="#">Adrian Booth</a></h1>
-          <ul class="main-nav">
+      <header className="header">
+        <h1 className="logo"><a href="#">Adrian Booth</a></h1>
+          <ul className="main-nav">
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Portfolio</a></li>
               <li><a href="#">Contact / Links</a></li>
           </ul>
       </header>
-      <div class="hero">
-        <img class='landingphoto' src="./images/hero.jpg"></img>
+      <div className="hero">
+        <img className='landingphoto' src="./images/hero.jpg"></img>
       </div>
-      <div class="photogrid">
+      <div className="photogrid">
         {Object.keys(images).map((key) => (
-          <a href="/" key={key}>
-            <div class="img-container">
-              <img class='photo' src={imageSources[key]} />
-              <div class="album-text">{extractAndFormatFileName(key)}</div>
+          <a href={getAlbumName(key)} key={key}>
+            <div className="img-container">
+              <img className='photo' src={imageSources[key]} />
+              <div className="album-text">{extractAndFormatFileName(key)}</div>
             </div>
           </a>
         ))}
