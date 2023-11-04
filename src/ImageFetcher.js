@@ -38,13 +38,21 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
      console.log("ERRORING")
      console.error(err);
    } else {
-     const images = data.Contents
+     const images = shuffleImages(data.Contents
       .filter(object => object.Key.includes('.'))
-      .map(object => object.Key);
+      .map(object => object.Key));
      setImages(images.reduce((acc, key) => ({ ...acc, [key]: null }), {}));
      images.forEach((key) => downloadImage(key, imageSources, setImageSources));
    }});
 }
+
+const shuffleImages = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 export const heroImage = (arr, imageSources) => {
   const imgStr = arr.find(element => element.includes("hero"))
