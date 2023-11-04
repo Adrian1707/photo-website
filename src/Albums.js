@@ -42,23 +42,28 @@ export default function Albums() {
     )
   }, []);
 
+  const heroImage = (arr) => {
+    const imgStr = arr.find(element => element.includes("hero"))
+    console.log(imgStr)
+    console.log(imageSources)
+    return imageSources[imgStr]
+  }
+
+  const galleryImages = (arr) => {
+    return arr.filter(element => !element.includes("hero"))
+  }
+
 
   return (
     <div>
       <header className="header">
         <h1 className="logo"><a href="#">Adrian Booth</a></h1>
-          <ul className="main-nav">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Contact / Links</a></li>
-          </ul>
       </header>
       <div className="hero">
-        <img className='landingphoto' src="./images/hero.jpg"></img>
+        <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
       </div>
       <div className="photogrid">
-        {Object.keys(images).map((key) => (
+        {galleryImages(Object.keys(images)).map((key) => (
           <a href={getAlbumName(key)} key={key}>
             <div className="img-container">
               <img className='photo' src={imageSources[key]} />

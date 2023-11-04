@@ -18,6 +18,17 @@ export default function Gallery() {
     )
   }, []);
 
+  const heroImage = (arr) => {
+    const imgStr = arr.find(element => element.includes("hero"))
+    console.log(imgStr)
+    console.log(imageSources)
+    return imageSources[imgStr]
+  }
+
+  const galleryImages = (arr) => {
+    return arr.filter(element => !element.includes("hero"))
+  }
+
   return (
     <div>
       <header className="header">
@@ -30,15 +41,13 @@ export default function Gallery() {
           </ul>
       </header>
       <div className="hero">
-        <img className='landingphoto' src="./images/hero.jpg"></img>
+        <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
       </div>
       <div className="photogrid">
-        {Object.keys(images).map((key) => (
-          <a href="/" key={key}>
-            <div className="img-container">
-              <img className='photo' src={imageSources[key]} />
-            </div>
-          </a>
+        {galleryImages(Object.keys(images)).map((key) => (
+          <div className="img-container">
+            <img className='photo' src={imageSources[key]} />
+          </div>
         ))}
       </div>
     </div>
