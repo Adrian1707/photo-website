@@ -168,6 +168,10 @@ a {
 
 @media screen and (width <= 700px) {
   .img-container {
-		width: 69%;
+		width: 100vw;
   }
+	.photogrid {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }
