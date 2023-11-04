@@ -3,6 +3,12 @@ body {
 	line-height: 1.6;
 	margin: 0;
 }
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
 ul {
   margin: 0;
   padding: 0;
@@ -114,6 +120,7 @@ a {
 @media screen and (width <= 700px) {
   .landingphoto {
     height: 500px;
+		width: 100%;
   }
 }
 
@@ -156,5 +163,11 @@ a {
 		z-index: 2;
     opacity: 1;
     transition: transform 600ms, opacity 2000ms;
+  }
+}
+
+@media screen and (width <= 700px) {
+  .img-container {
+		width: 69%;
   }
 }
