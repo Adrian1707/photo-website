@@ -174,4 +174,10 @@ a {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+	.photo {
+		opacity: 1;
+		&:hover {
+			transform: scale(1);
+	  }
+	}
 }
