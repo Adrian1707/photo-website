@@ -33,12 +33,6 @@ export default function Gallery() {
     <div>
       <header className="header">
         <h1 className="logo"><a href="/">Main Gallery</a></h1>
-          <ul className="main-nav">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Contact / Links</a></li>
-          </ul>
       </header>
       <div className="hero">
         <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
