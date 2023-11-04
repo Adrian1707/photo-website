@@ -45,3 +45,14 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
      images.forEach((key) => downloadImage(key, imageSources, setImageSources));
    }});
 }
+
+export const heroImage = (arr, imageSources) => {
+  const imgStr = arr.find(element => element.includes("hero"))
+  console.log(imgStr)
+  console.log(imageSources)
+  return imageSources[imgStr]
+}
+
+export const galleryImages = (arr) => {
+  return arr.filter(element => !element.includes("hero"))
+}

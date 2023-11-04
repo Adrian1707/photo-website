@@ -1,6 +1,6 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { fetchImages, downloadImage } from "./ImageFetcher";
+import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
 import { useParams } from 'react-router-dom';
 import Nav from './Nav'
 
@@ -19,22 +19,11 @@ export default function Gallery() {
     )
   }, []);
 
-  const heroImage = (arr) => {
-    const imgStr = arr.find(element => element.includes("hero"))
-    console.log(imgStr)
-    console.log(imageSources)
-    return imageSources[imgStr]
-  }
-
-  const galleryImages = (arr) => {
-    return arr.filter(element => !element.includes("hero"))
-  }
-
   return (
     <div>
       <Nav />
       <div className="hero">
-        <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
+        <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
       </div>
       <div className="photogrid">
         {galleryImages(Object.keys(images)).map((key) => (
