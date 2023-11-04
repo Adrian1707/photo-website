@@ -28,8 +28,8 @@ export default function Albums() {
         {galleryImages(Object.keys(images)).map((key) => (
           <a href={getAlbumName(key)} key={key}>
             <div className="img-container">
-              <img className='photo' src={imageSources[key]} />
               <div className="album-text">{extractAndFormatFileName(key)}</div>
+              <img className='photo' src={imageSources[key]} />
             </div>
           </a>
         ))}

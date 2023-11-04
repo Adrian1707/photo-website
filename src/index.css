@@ -156,6 +156,11 @@ a {
   width: 100%; /* Optionally, make the text container the full width of the image */
 }
 
+.album-text:hover + .photo {
+  transform: scale(1.4);
+	transition: transform 600ms;
+}
+
 .photo {
 	position: relative;
   opacity: 0.9;
