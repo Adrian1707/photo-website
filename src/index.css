@@ -162,6 +162,7 @@ a {
 }
 
 .photo {
+	border-radius: 40px;
 	position: relative;
   opacity: 0.9;
   width: 100%;
