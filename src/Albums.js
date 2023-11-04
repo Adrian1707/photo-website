@@ -57,7 +57,7 @@ export default function Albums() {
   return (
     <div>
       <header className="header">
-        <h1 className="logo"><a href="#">Adrian Booth</a></h1>
+        <h1 className="logo"><a href="/">Main Gallery</a></h1>
       </header>
       <div className="hero">
         <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
