@@ -1,6 +1,7 @@
 import * as React from 'react';
 const { useEffect, useState } = React
 import { fetchImages, downloadImage } from "./ImageFetcher";
+import Nav from './Nav'
 
 export default function Albums() {
   const [images, setImages] = useState({});
@@ -56,9 +57,7 @@ export default function Albums() {
 
   return (
     <div>
-      <header className="header">
-        <h1 className="logo"><a href="/">Main Gallery</a></h1>
-      </header>
+      <Nav />
       <div className="hero">
         <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
       </div>

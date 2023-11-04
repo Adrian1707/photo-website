@@ -2,6 +2,7 @@ import * as React from 'react';
 const { useEffect, useState } = React
 import { fetchImages, downloadImage } from "./ImageFetcher";
 import { useParams } from 'react-router-dom';
+import Nav from './Nav'
 
 export default function Gallery() {
   const [images, setImages] = useState({});
@@ -31,9 +32,7 @@ export default function Gallery() {
 
   return (
     <div>
-      <header className="header">
-        <h1 className="logo"><a href="/">Main Gallery</a></h1>
-      </header>
+      <Nav />
       <div className="hero">
         <img className='landingphoto' src={heroImage(Object.keys(images))}></img>
       </div>
