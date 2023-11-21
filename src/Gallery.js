@@ -19,6 +19,19 @@ export default function Gallery() {
     )
   }, []);
 
+  const getImageClassName = (imgData) => {
+    console.log(images)
+    if(imgData && imgData.width >= 1900) {
+      return 'img-container landscape'
+    } else {
+      return 'img-container portrait'
+    }
+  }
+
+  const getImageUrl = (img) => {
+    return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${img}`
+  }
+
   return (
     <div>
       <Nav />
@@ -27,8 +40,8 @@ export default function Gallery() {
       </div>
       <div className="photogrid">
         {galleryImages(Object.keys(images)).map((key) => (
-          <div className="img-container">
-            <img className='photo' src={imageSources[key] && imageSources[key].src } />
+          <div className={getImageClassName(imageSources[key])}>
+            <a target="_blank" href={getImageUrl(key)}><img className='photo' src={imageSources[key] && imageSources[key].src } /></a>
           </div>
         ))}
         <div className="img-container">

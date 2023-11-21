@@ -16,7 +16,6 @@ export const downloadImage = async (key, imageSources, setImageSources) => {
        const img = new Image();
        img.src = imageSrc;
        img.onload = () => {
-
        // Get the dimensions of the image
        const width = img.naturalWidth;
        const height = img.naturalHeight;
