@@ -12,12 +12,23 @@ export const downloadImage = async (key, imageSources, setImageSources) => {
        console.error(err);
      } else {
        const imageSrc = `data:image/jpeg;base64,${data.Body.toString('base64')}`;
+       // Create an Image object
+       const img = new Image();
+       img.src = imageSrc;
+       img.onload = () => {
+
+       // Get the dimensions of the image
+       const width = img.naturalWidth;
+       const height = img.naturalHeight;
+       // console.log("WIDTH AND HEIGHT")
+       // console.log(width)
+       // console.log(height)
+         // Store the image source and dimensions in the state
        setImageSources((prevImageSources) => ({
          ...prevImageSources,
-         [key]: imageSrc,
+         [key]: { src: imageSrc, width, height },
        }));
-        console.log(imageSources)
-     }
+     }}
    });
  };
 
@@ -32,7 +43,6 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
    region: 'eu-west-2',
   });
   const s3 = new AWS.S3();
-  console.log(s3)
   s3.listObjectsV2(params, (err, data) => {
    if (err) {
      console.log("ERRORING")
@@ -56,9 +66,7 @@ const shuffleImages = (array) => {
 
 export const heroImage = (arr, imageSources) => {
   const imgStr = arr.find(element => element.includes("hero"))
-  console.log(imgStr)
-  console.log(imageSources)
-  return imageSources[imgStr]
+  return imageSources[imgStr] && imageSources[imgStr].src
 }
 
 export const galleryImages = (arr) => {

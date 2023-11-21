@@ -28,9 +28,12 @@ export default function Gallery() {
       <div className="photogrid">
         {galleryImages(Object.keys(images)).map((key) => (
           <div className="img-container">
-            <img className='photo' src={imageSources[key]} />
+            <img className='photo' src={imageSources[key] && imageSources[key].src } />
           </div>
         ))}
+        <div className="img-container">
+          <img className='photo' />
+        </div>
       </div>
     </div>
   )
