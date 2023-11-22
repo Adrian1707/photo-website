@@ -51,6 +51,12 @@ export default function Gallery() {
         <div className="img-container">
           <img className='photo' />
         </div>
+        <div className="img-container">
+          <img className='photo' />
+        </div>
+        <div className="img-container">
+          <img className='photo' />
+        </div>
       </div>
     </div>
   )
