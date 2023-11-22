@@ -48,12 +48,6 @@ export default function Gallery() {
             <a target="_blank" href={getImageUrl(key)}><img className='photo' src={imageSources[key] && imageSources[key].src } /></a>
           </div>
         ))}
-        <div className="img-container">
-          <img className='photo' />
-        </div>
-        <div className="img-container">
-          <img className='photo' />
-        </div>
       </div>
     </div>
   )

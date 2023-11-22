@@ -183,8 +183,8 @@ a {
 }
 
 .img-container {
-	height: 50vh;
-	flex-grow: 1;
+	flex: 0 1 0;
+	height: 60vh;
 	margin-left: 20px;
 	margin-right: 20px;
 }
@@ -220,6 +220,13 @@ a {
 	transition: transform 600ms;
 }
 
+.landscape {
+	flex-grow: 0.5;
+}
+.portrait {
+	flex-grow: 0.5;
+}
+
 
 .photo:hover {
   transform: scale(1.4);
@@ -227,17 +234,23 @@ a {
 	z-index: 2;
 }
 
-@media screen and (width <= 700px) {
+@media screen and (width <= 800px) {
 	.landingphoto {
 		height: 33vh;
 	}
+	.landscape {
+		flex-grow: 1;
+	}
   .img-container {
-		height: 29vh;
+		height: 30vh;
 		object-fit: cover;
 		margin-left: 0px;
 		margin-right: 0px;
   }
 	.photogrid {
+		display: inline-flex;
+		flex-wrap: wrap;
+		gap: 3px;
 		padding-left: 0px;
 		padding-right: 0px;
 	}
