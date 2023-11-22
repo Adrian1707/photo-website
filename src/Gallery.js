@@ -19,16 +19,24 @@ export default function Gallery() {
     )
   }, []);
 
+  const getImageUrl = (img) => {
+    return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${img}`
+  }
+
+  const getHeroImageUrl = () => {
+    return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${albumName}/hero.jpg`
+  }
+
   return (
     <div>
       <Nav />
       <div className="hero">
-        <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
+        <a target="_blank" href={getHeroImageUrl()}><img className='landingphoto' src={heroImage(Object.keys(images), imageSources)} /></a>
       </div>
       <div className="photogrid">
         {galleryImages(Object.keys(images)).map((key) => (
           <div className="img-container">
-            <img className='photo' src={imageSources[key]} />
+            <a target="_blank" href={getImageUrl(key)}><img className='photo' src={imageSources[key]} /></a>
           </div>
         ))}
       </div>
