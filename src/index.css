@@ -228,8 +228,12 @@ a {
 }
 
 @media screen and (width <= 700px) {
+	.landingphoto {
+		height: 33vh;
+	}
   .img-container {
-		width: 100vw;
+		height: 29vh;
+		object-fit: cover;
 		margin-left: 0px;
 		margin-right: 0px;
   }
