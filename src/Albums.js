@@ -24,12 +24,12 @@ export default function Albums() {
       <div className="hero">
         <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
       </div>
-      <div className="photogrid">
+      <div className="album-photogrid">
         {galleryImages(Object.keys(images)).map((key) => (
           <a href={getAlbumName(key)} key={key}>
-            <div className="img-container">
+            <div className="album-img-container">
               <div className="album-text">{extractAndFormatFileName(key, imageSources)}</div>
-              <img className='photo' src={imageSources[key] && imageSources[key].src } />
+              <img className='album-photo' src={imageSources[key] && imageSources[key].src } />
             </div>
           </a>
         ))}
