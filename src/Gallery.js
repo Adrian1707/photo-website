@@ -20,7 +20,7 @@ export default function Gallery() {
   }, []);
 
   const getImageClassName = (imgData) => {
-    if(imgData && imgData.width >= 1900) {
+    if(imgData && imgData.width >= 1900 && imgData.height <= 1700) {
       return 'img-container landscape'
     } else {
       return 'img-container portrait'
