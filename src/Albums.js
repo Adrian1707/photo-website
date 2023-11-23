@@ -25,7 +25,7 @@ export default function Albums() {
         <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
       </div>
       <div className="album-photogrid">
-        {galleryImages(Object.keys(images)).map((key) => (
+        {Object.keys(galleryImages(images)).map((key) => (
           <a href={getAlbumName(key)} key={key}>
             <div className="album-img-container">
               <div className="album-text">{extractAndFormatFileName(key, imageSources)}</div>

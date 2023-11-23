@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AWS from 'aws-sdk';
 
-export const downloadImage = async (key, imageSources, setImageSources) => {
+export const downloadImage = async (key, imageSources, setImageSources, images, setImages) => {
    const params = {
      Bucket: 'adrianboothphotos',
      Key: key,
@@ -20,6 +20,10 @@ export const downloadImage = async (key, imageSources, setImageSources) => {
        setImageSources((prevImageSources) => ({
          ...prevImageSources,
          [key]: { src: imageSrc, width, height },
+       }));
+       setImages((prevImages) => ({
+         ...prevImages,
+         [key]: width,
        }));
      }}
    });
@@ -44,12 +48,12 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
      const images = shuffleImages(data.Contents
       .filter(object => object.Key.includes('.'))
       .map(object => object.Key));
-     setImages(images.reduce((acc, key) => ({ ...acc, [key]: null }), {}));
-     images.forEach((key) => downloadImage(key, imageSources, setImageSources));
+     images.forEach((key) => downloadImage(key, imageSources, setImageSources, images, setImages));
    }});
 }
 
 const shuffleImages = (array) => {
+  return array;
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -63,5 +67,20 @@ export const heroImage = (arr, imageSources) => {
 }
 
 export const galleryImages = (arr) => {
-  return arr.filter(element => !element.includes("hero"))
+  // let sortedImages = Object.fromEntries(
+  //    Object.entries(arr).sort(([, a], [, b]) => b - a)
+  //   );
+  // console.log("SORTED IMAGES")
+  // console.log(sortedImages)
+  // let fileNames = Object.keys(arr)
+  // return fileNames.filter(element => !element.includes("hero"))
+
+  let filteredObj = Object.fromEntries(
+     Object.entries(arr)
+      .filter(([key]) => !key.includes('hero'))
+      .sort(([, a], [, b]) => b - a)
+    );
+    console.log("SORTED")
+    console.log(filteredObj)
+    return filteredObj
 }

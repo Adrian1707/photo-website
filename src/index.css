@@ -179,6 +179,7 @@ a {
 .photogrid {
 	display: inline-flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 	gap: 10px;
 }
 
@@ -221,10 +222,10 @@ a {
 }
 
 .landscape {
-	flex-grow: 0.5;
+	flex-grow: 0;
 }
 .portrait {
-	flex-grow: 0.5;
+	flex-grow: 0.4;
 }
 
 
@@ -242,13 +243,14 @@ a {
 		flex-grow: 1;
 	}
   .img-container {
-		height: 30vh;
+		height: 28vh;
 		object-fit: cover;
 		margin-left: 0px;
 		margin-right: 0px;
   }
 	.photogrid {
 		display: inline-flex;
+		justify-content: space-evenly;
 		flex-wrap: wrap;
 		gap: 3px;
 		padding-left: 0px;

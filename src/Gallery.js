@@ -20,7 +20,6 @@ export default function Gallery() {
   }, []);
 
   const getImageClassName = (imgData) => {
-    console.log(images)
     if(imgData && imgData.width >= 1900) {
       return 'img-container landscape'
     } else {
@@ -43,7 +42,7 @@ export default function Gallery() {
         <a target="_blank" href={getHeroImageUrl()}><img className='landingphoto' src={heroImage(Object.keys(images), imageSources)} /></a>
       </div>
       <div className="photogrid">
-        {galleryImages(Object.keys(images)).map((key) => (
+        {Object.keys(galleryImages(images)).map((key) => (
           <div className={getImageClassName(imageSources[key])}>
             <a target="_blank" href={getImageUrl(key)}><img className='photo' src={imageSources[key] && imageSources[key].src } /></a>
           </div>
