@@ -240,10 +240,10 @@ a {
 		height: 33vh;
 	}
 	.landscape {
-		flex-grow: 1;
+		flex-grow: 0.8;
 	}
   .img-container {
-		height: 28vh;
+		height: 27vh;
 		object-fit: cover;
 		margin-left: 0px;
 		margin-right: 0px;

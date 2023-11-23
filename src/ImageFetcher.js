@@ -53,12 +53,15 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
 }
 
 const shuffleImages = (array) => {
-  return array;
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  if(isMobile()) {
+    return array
+  } else {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
-  return array;
 };
 
 export const heroImage = (arr, imageSources) => {
@@ -66,21 +69,18 @@ export const heroImage = (arr, imageSources) => {
   return imageSources[imgStr] && imageSources[imgStr].src
 }
 
-export const galleryImages = (arr) => {
-  // let sortedImages = Object.fromEntries(
-  //    Object.entries(arr).sort(([, a], [, b]) => b - a)
-  //   );
-  // console.log("SORTED IMAGES")
-  // console.log(sortedImages)
-  // let fileNames = Object.keys(arr)
-  // return fileNames.filter(element => !element.includes("hero"))
+const isMobile = () => {
+  return window.matchMedia("only screen and (max-width: 600px)").matches;
+}
 
-  let filteredObj = Object.fromEntries(
-     Object.entries(arr)
-      .filter(([key]) => !key.includes('hero'))
-      .sort(([, a], [, b]) => b - a)
-    );
-    console.log("SORTED")
-    console.log(filteredObj)
-    return filteredObj
+export const galleryImages = (obj) => {
+  if(isMobile()) {
+    return Object.fromEntries(
+       Object.entries(obj)
+        .filter(([key]) => !key.includes('hero'))
+        .sort(([, a], [, b]) => b - a)
+      );
+  } else {
+    return Object.fromEntries(Object.entries(obj).filter(([key]) => !key.includes('hero')));
+  }
 }
