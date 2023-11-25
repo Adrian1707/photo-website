@@ -25,6 +25,12 @@ const MapChart = () => {
     });
   }, []);
 
+  const handleHover = (d, geo) => {
+    console.log("HOVERING")
+    console.log(d)
+    console.log(geo)
+  }
+
   return (
     <ComposableMap
       projectionConfig={{
@@ -49,6 +55,13 @@ const MapChart = () => {
                   fill={visited ? "#c5efb7" : "#847b7b"}
                   stroke="#FFF"
                   strokeWidth={0.5}
+                  onMouseEnter={() => handleHover(d, geo)}
+                  style={{
+                   hover: {
+                     fill: "#99c5ed",
+                     transition: "all 300ms"
+                   },
+                 }}
                 />
               );
             })
