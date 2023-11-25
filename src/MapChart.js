@@ -19,7 +19,8 @@ const MapChart = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    csv(`/vulnerability.csv`).then((data) => {
+    csv(`/countries.csv`).then((data) => {
+      console.log(data)
       setData(data);
     });
   }, []);
@@ -27,8 +28,10 @@ const MapChart = () => {
   return (
     <ComposableMap
       projectionConfig={{
+        // this rotate value provides us with control to rotate the map westward or eastwood.
+        // changing to -200 will center the pacific ocean in the map for instance
         rotate: [-10, 0, 0],
-        scale: 170
+        scale: 160
       }}
     >
       <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
@@ -38,11 +41,12 @@ const MapChart = () => {
           {({ geographies }) =>
             geographies.map((geo) => {
               const d = data.find((s) => s.ISO3 === geo.id);
+              let visited = d && d.Visited.toLowerCase() == "y"
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill="#c5efb7"
+                  fill={visited ? "#c5efb7" : "#847b7b"}
                   stroke="#FFF"
                   strokeWidth={0.5}
                 />
