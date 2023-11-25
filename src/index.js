@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import Gallery from "./Gallery";
+import Map from "./Map";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/:albumName',
     element: <Gallery />
+  },
+  {
+    path: '/map',
+    element: <Map />
   }
 ]);
 
