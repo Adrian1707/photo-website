@@ -69,7 +69,7 @@ const MapChart = () => {
   }
 
   return (
-    <div>
+    <div className="map">
       <ComposableMap
         projectionConfig={{
           // this rotate value provides us with control to rotate the map westward or eastwood.
