@@ -12,6 +12,7 @@ AUT,Austria,y
 AZE,Azerbaijan,
 BHS,Bahamas,
 BHR,Bahrain,y
+IDS,Bali,y
 BGD,Bangladesh,
 BRB,Barbados,
 BLR,Belarus,
@@ -87,7 +88,7 @@ KAZ,Kazakhstan,
 KEN,Kenya,y
 KIR,Kiribati,
 PRK,"Korea, Democratic People's Repub",
-KOR,"Korea, Republic of",y
+KOR,Korea,y
 KWT,Kuwait,
 KGZ,Kyrgyzstan,
 LAO,Lao People's Democratic Republic,
@@ -137,6 +138,7 @@ PER,Peru,
 PHL,Philippines,y
 POL,Poland,y
 PRT,Portugal,y
+PSX,Palestine,y
 QAT,Qatar,y
 ROU,Romania,y
 RUS,Russian Federation,
@@ -166,6 +168,7 @@ SWZ,Swaziland,
 SWE,Sweden,
 CHE,Switzerland,
 SYR,Syrian Arab Republic,
+TWN,Taiwan,y
 TJK,Tajikistan,
 TZA,"Tanzania, United Republic of",y
 THA,Thailand,y
@@ -179,7 +182,7 @@ TKM,Turkmenistan,
 TUV,Tuvalu,
 UGA,Uganda,y
 UKR,Ukraine,
-ARE,United Arab Emirates,y
+ARE,UAE,y
 GBR,United Kingdom,y
 USA,United States,y
 URY,Uruguay,
