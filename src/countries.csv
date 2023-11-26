@@ -1,0 +1,195 @@
+ISO3,Name,Visited
+AFG,Afghanistan,
+ALB,Albania,
+DZA,Algeria,
+AND,Andorra,
+AGO,Angola,
+ATG,Antigua and Barbuda,
+ARG,Argentina,Y
+ARM,Armenia,
+AUS,Australia,
+AUT,Austria,y
+AZE,Azerbaijan,
+BHS,Bahamas,
+BHR,Bahrain,y
+IDS,Bali,y
+BGD,Bangladesh,
+BRB,Barbados,
+BLR,Belarus,
+BEL,Belgium,y
+BLZ,Belize,
+BEN,Benin,
+BTN,Bhutan,
+BOL,"Bolivia, Plurinational State of",
+BIH,Bosnia and Herzegovina,
+BWA,Botswana,y
+BRA,Brazil,y
+BRN,Brunei Darussalam,
+BGR,Bulgaria,
+BFA,Burkina Faso,
+BDI,Burundi,
+KHM,Cambodia,
+CMR,Cameroon,
+CAN,Canada,y
+CPV,Cape Verde,
+CAF,Central African Republic,
+TCD,Chad,
+CHL,Chile,
+CHN,China,y
+COL,Colombia,y
+COM,Comoros,
+COG,Congo,
+COD,"Congo, the Democratic Republic o",
+CRI,Costa Rica,
+CIV,Cote d'Ivoire,
+HRV,Croatia,
+CUB,Cuba,
+CYP,Cyprus,
+CZE,Czech Republic,y
+DNK,Denmark,
+DJI,Djibouti,
+DMA,Dominica,
+DOM,Dominican Republic,
+ECU,Ecuador,
+EGY,Egypt,y
+SLV,El Salvador,
+GNQ,Equatorial Guinea,
+ERI,Eritrea,
+EST,Estonia,
+ETH,Ethiopia,y
+FJI,Fiji,
+FIN,Finland,
+FRA,France,y
+GAB,Gabon,
+GMB,Gambia,
+GEO,Georgia,
+DEU,Germany,y
+GHA,Ghana,
+GRC,Greece,y
+GRD,Grenada,y
+GTM,Guatemala,
+GIN,Guinea,
+GNB,Guinea-Bissau,
+GUY,Guyana,
+HTI,Haiti,
+HND,Honduras,
+HUN,Hungary,y
+IND,India,y
+IDS,Indonesia,y
+IRN,"Iran, Islamic Republic of",
+IRQ,Iraq,
+IRL,Ireland,y
+ISR,Israel,y
+ITA,Italy,y
+JAM,Jamaica,
+JPN,Japan,y
+JOR,Jordan,y
+KAZ,Kazakhstan,
+KEN,Kenya,y
+KIR,Kiribati,
+PRK,"Korea, Democratic People's Repub",
+KOR,Korea,y
+KWT,Kuwait,
+KGZ,Kyrgyzstan,
+LAO,Lao People's Democratic Republic,
+LVA,Latvia,y
+LBN,Lebanon,
+LSO,Lesotho,y
+LBR,Liberia,
+LBY,Libyan Arab Jamahiriya,
+LIE,Liechtenstein,
+LTU,Lithuania,y
+LUX,Luxembourg,
+MKD,Macedonia,
+MDG,Madagascar,
+MWI,Malawi,y
+MYS,Malaysia,y
+MDV,Maldives,
+MLI,Mali,
+MLT,Malta,
+MHL,Marshall Islands,
+MRT,Mauritania,
+MUS,Mauritius,
+MEX,Mexico,y
+FSM,"Micronesia, Federated States of",
+MDA,"Moldova, Republic of",
+MCO,Monaco,
+MNG,Mongolia,
+MNE,Montenegro,
+MAR,Morocco,y
+MOZ,Mozambique,
+MMR,Myanmar,
+NAM,Namibia,y
+NRU,Nauru,
+NPL,Nepal,
+NLD,Netherlands,y
+NZL,New Zealand,y
+NIC,Nicaragua,
+NER,Niger,
+NGA,Nigeria,
+NOR,Norway,
+OMN,Oman,y
+PAK,Pakistan,
+PLW,Palau,
+PAN,Panama,
+PNG,Papua New Guinea,
+PRY,Paraguay,
+PER,Peru,
+PHL,Philippines,y
+POL,Poland,y
+PRT,Portugal,y
+PSX,Palestine,y
+QAT,Qatar,y
+ROU,Romania,y
+RUS,Russian Federation,
+RWA,Rwanda,y
+KNA,Saint Kitts and Nevis,
+LCA,Saint Lucia,
+VCT,Saint Vincent and the Grenadines,
+WSM,Samoa,
+SMR,San Marino,
+STP,Sao Tome and Principe,
+SAU,Saudi Arabia,y
+SEN,Senegal,
+SRB,Serbia,
+SYC,Seychelles,
+SLE,Sierra Leone,
+SGP,Singapore,y
+SVK,Slovakia,
+SVN,Slovenia,
+SLB,Solomon Islands,
+SOM,Somalia,
+ZAF,South Africa,y
+ESP,Spain,y
+LKA,Sri Lanka,
+SDN,Sudan,y
+SUR,Suriname,
+SWZ,Swaziland,
+SWE,Sweden,
+CHE,Switzerland,
+SYR,Syrian Arab Republic,
+TWN,Taiwan,y
+TJK,Tajikistan,
+TZA,"Tanzania, United Republic of",y
+THA,Thailand,y
+TLS,Timor-Leste,
+TGO,Togo,
+TON,Tonga,
+TTO,Trinidad and Tobago,
+TUN,Tunisia,
+TUR,Turkey,y
+TKM,Turkmenistan,
+TUV,Tuvalu,
+UGA,Uganda,y
+UKR,Ukraine,
+ARE,UAE,y
+GBR,United Kingdom,y
+USA,United States,y
+URY,Uruguay,
+UZB,Uzbekistan,
+VUT,Vanuatu,
+VEN,"Venezuela, Bolivarian Republic o",
+VNM,Viet Nam,y
+YEM,Yemen,
+ZMB,Zambia,y
+ZWE,Zimbabwe,y
