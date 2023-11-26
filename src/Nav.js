@@ -5,7 +5,6 @@ export default function Nav () {
   <nav className="navbar">
     <ul className="nav-links">
       <li className="nav-item"><a href="/">Main Gallery</a></li>
-      <li className="nav-item"><a href="/map">Countries I've visited</a></li>
     </ul>
   </nav>
   )
