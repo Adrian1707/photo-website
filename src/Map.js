@@ -8,7 +8,6 @@ export default function Map() {
   return (
     <div>
       <Nav />
-      <Subnav />
       <MapChart />
     </div>
   )

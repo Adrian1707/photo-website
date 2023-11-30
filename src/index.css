@@ -309,12 +309,8 @@ nav {
 }
 
 .visited-message {
-	padding-top: 1px;
+	padding-top: 150px;
 	text-align: center;
-}
-
-.map {
-	margin-top: -71px;
 }
 
 .flag-container {

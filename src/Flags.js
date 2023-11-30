@@ -40,7 +40,6 @@ export default function Flags() {
   return (
     <div>
       <Nav />
-      <Subnav />
       <div className='flag-page'>
         <div className="visited-message">
           <h1>{Object.keys(countries).length} Countries</h1>
