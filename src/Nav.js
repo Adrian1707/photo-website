@@ -10,6 +10,7 @@ export default function Nav () {
       <li className="nav-item"><a href="/architecture">Architecture</a></li>
       <li className="nav-item"><a href="/landscape">Landscape</a></li>
       <li className="nav-item"><a href="/map">Countries I've visited</a></li>
+      <li className="nav-item"><a href="/flags">Flag Gallery</a></li>
     </ul>
   </nav>
   )
