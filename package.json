@@ -26,6 +26,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-simple-maps": "^2.0.0",
+    "react-world-flags": "^1.6.0",
     "src": "^1.1.2"
   },
   "staticFiles": {

@@ -75,6 +75,19 @@ nav {
   color: darkgreen;
 }
 
+.sub-nav {
+	position: relative;
+	z-index: 3;
+	background-color: #E7E7E7;
+	padding-top: 77px;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
 
 /* =================================
   Media Queries
@@ -289,4 +302,35 @@ nav {
 			transform: scale(1);
 	  }
 	}
+}
+
+.flag-page {
+	background-color: #F1F1F1;
+}
+
+.visited-message {
+	padding-top: 1px;
+	text-align: center;
+}
+
+.map {
+	margin-top: -71px;
+}
+
+.flag-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	row-gap: 8rem;
+	justify-items: center;
+	padding-top: 50px;
+}
+
+.flag {
+	height: 200px;
+	width: 350px;
+}
+
+.flag-name {
+	font-size: 1.45em;
+	text-align: center;
 }

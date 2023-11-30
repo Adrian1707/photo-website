@@ -9,6 +9,7 @@ import {
 import App from "./App";
 import Gallery from "./Gallery";
 import Map from "./Map";
+import Flags from "./Flags";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/map',
     element: <Map />
+  },
+  {
+    path: '/flags',
+    element: <Flags />
   }
 ]);
 

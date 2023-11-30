@@ -5,7 +5,7 @@ DZA,Algeria,
 AND,Andorra,
 AGO,Angola,
 ATG,Antigua and Barbuda,
-ARG,Argentina,Y
+ARG,Argentina,y
 ARM,Armenia,
 AUS,Australia,
 AUT,Austria,y
@@ -14,7 +14,7 @@ BHS,Bahamas,
 BHR,Bahrain,y
 IDS,Bali,y
 BGD,Bangladesh,
-BRB,Barbados,
+BRB,Barbados,y
 BLR,Belarus,
 BEL,Belgium,y
 BLZ,Belize,
@@ -74,8 +74,9 @@ GUY,Guyana,
 HTI,Haiti,
 HND,Honduras,
 HUN,Hungary,y
+ISL,Iceland,y
 IND,India,y
-IDS,Indonesia,y
+IDN,Indonesia,y
 IRN,"Iran, Islamic Republic of",
 IRQ,Iraq,
 IRL,Ireland,y
@@ -138,14 +139,14 @@ PER,Peru,
 PHL,Philippines,y
 POL,Poland,y
 PRT,Portugal,y
-PSX,Palestine,y
+PSE,Palestine,y
 QAT,Qatar,y
 ROU,Romania,y
 RUS,Russian Federation,
 RWA,Rwanda,y
 KNA,Saint Kitts and Nevis,
-LCA,Saint Lucia,
-VCT,Saint Vincent and the Grenadines,
+LCA,Saint Lucia,y
+VCT,Saint Vincent and the Grenadines,y
 WSM,Samoa,
 SMR,San Marino,
 STP,Sao Tome and Principe,
@@ -189,7 +190,7 @@ URY,Uruguay,
 UZB,Uzbekistan,
 VUT,Vanuatu,
 VEN,"Venezuela, Bolivarian Republic o",
-VNM,Viet Nam,y
+VNM,Vietnam,y
 YEM,Yemen,
 ZMB,Zambia,y
 ZWE,Zimbabwe,y
