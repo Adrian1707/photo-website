@@ -41,9 +41,12 @@ export default function Flags() {
     <div>
       <Nav />
       <div className='flag-page'>
-        <div className="visited-message">
-          <h1>{Object.keys(countries).length} Countries</h1>
-        </div>
+        {
+          Object.keys(countries).length > 0 &&
+            <div className="visited-message">
+              <h1>{Object.keys(countries).length} Countries</h1>
+            </div>
+        }
         <div className="flag-container">
           {Object.entries(countries).map(([code, name]) => (
             <div className="flag">
