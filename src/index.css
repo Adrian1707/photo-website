@@ -75,19 +75,29 @@ nav {
   color: darkgreen;
 }
 
-.sub-nav {
-	position: relative;
-	z-index: 3;
-	background-color: #E7E7E7;
-	padding-top: 77px;
-	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+.dropdown {
+ display: none;
+ position: absolute;
+ background-color: #f1f1f1;
+ min-width: 160px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ z-index: 1;
 }
 
+.dropdown a {
+ color: black;
+ padding: 12px 16px;
+ text-decoration: none;
+ display: block;
+}
+
+.dropdown a:hover {
+ background-color: #ddd;
+}
+
+.nav-item:hover .dropdown {
+ display: block;
+}
 
 /* =================================
   Media Queries
@@ -315,7 +325,7 @@ nav {
 
 .flag-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(433px, 1fr));
 	row-gap: 8rem;
 	justify-items: center;
 	padding-top: 50px;
