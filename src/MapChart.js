@@ -118,7 +118,7 @@ const MapChart = () => {
             }
           </Geographies>
         )}
-        {markers().map((marker, index) => {
+        {data.length > 0 && markers().map((marker, index) => {
            return (
              <Marker key={index} coordinates={marker.coordinates} fill="#000">
                <text style={{fontWeight: 'bold'}} textAnchor="middle" fill={marker.color || "#181818"} fontSize={marker.size}>
