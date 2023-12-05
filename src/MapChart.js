@@ -43,7 +43,6 @@ const MapChart = () => {
 
   const handleHover = (d, geo) => {
     let countryName = d.Name.toLowerCase()
-    console.log(countryHasAlbum(countryName))
   }
 
   const handleClick = (name) => {
