@@ -3,6 +3,7 @@ import { csv } from "d3-fetch";
 import { scaleLinear } from "d3-scale";
 import {useNavigate} from 'react-router-dom'
 import { listAlbums } from "./ImageFetcher";
+import markers from './markers'
 import {
   ComposableMap,
   Geographies,
@@ -118,16 +119,16 @@ const MapChart = () => {
             }
           </Geographies>
         )}
-        <Marker coordinates={[-130, -10]} fill="#777">
-        <text textAnchor="middle" fill="#5d954a">
-          Visited and has album
-        </text>
-      </Marker>
-      <Marker coordinates={[-130, -20]} fill="#777">
-      <text textAnchor="middle" fill="#c5efb7">
-        Visited, no album
-      </text>
-    </Marker>
+        {Object.keys(markers()).map((key, index) => {
+           const marker = markers()[key];
+           return (
+               <Marker key={index} coordinates={marker.coordinates} fill="#000">
+                 <text style={{fontWeight: 'bold'}} textAnchor="middle" fill={marker.color || "#181818"} fontSize={marker.size}>
+                     {marker.text}
+                 </text>
+               </Marker>
+           );
+        })}
       </ComposableMap>
     </div>
   );
