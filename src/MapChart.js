@@ -119,14 +119,13 @@ const MapChart = () => {
             }
           </Geographies>
         )}
-        {Object.keys(markers()).map((key, index) => {
-           const marker = markers()[key];
+        {markers().map((marker, index) => {
            return (
-               <Marker key={index} coordinates={marker.coordinates} fill="#000">
-                 <text style={{fontWeight: 'bold'}} textAnchor="middle" fill={marker.color || "#181818"} fontSize={marker.size}>
-                     {marker.text}
-                 </text>
-               </Marker>
+             <Marker key={index} coordinates={marker.coordinates} fill="#000">
+               <text style={{fontWeight: 'bold'}} textAnchor="middle" fill={marker.color || "#181818"} fontSize={marker.size}>
+                {marker.text}
+               </text>
+             </Marker>
            );
         })}
       </ComposableMap>
