@@ -27,10 +27,6 @@ export default function Gallery() {
     }
   }
 
-  const getImageUrl = (img) => {
-    return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${img}`
-  }
-
   const getHeroImageUrl = () => {
     return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${albumName}/hero.jpg`
   }
@@ -44,7 +40,7 @@ export default function Gallery() {
       <div className="photogrid">
         {Object.keys(galleryImages(images)).map((key) => (
           <div className={getImageClassName(imageSources[key])}>
-            <a target="_blank" href={getImageUrl(key)}><img className='photo' src={imageSources[key] && imageSources[key].src } /></a>
+            <a target="_blank" href={key}><img className='photo' src={imageSources[key] && imageSources[key].src } /></a>
           </div>
         ))}
       </div>
