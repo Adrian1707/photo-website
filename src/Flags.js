@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
-import Flag from 'react-world-flags'
+const Flag = React.lazy(() => import('react-world-flags'));
 import Nav from "./Nav";
 import Subnav from "./Subnav";
 
