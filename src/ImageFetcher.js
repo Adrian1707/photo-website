@@ -1,31 +1,33 @@
 import * as React from 'react';
-const AWS = require('aws-sdk/global');
-const S3 = require('aws-sdk/clients/s3');
+import AWS from 'aws-sdk';
 
-const CLOUDFRONT_URL = 'https://d2muv3p24sdmra.cloudfront.net'
-
-export const downloadImage = async (imageUrl, imageSources, setImageSources, images, setImages) => {
-  fetch(imageUrl)
-   .then(response => response.blob())
-   .then(blob => {
-     const imageSrc = URL.createObjectURL(blob);
-     const img = new Image();
-     img.src = imageSrc;
-     img.onload = () => {
+export const downloadImage = async (key, imageSources, setImageSources, images, setImages) => {
+   const params = {
+     Bucket: 'adrianboothphotos',
+     Key: key,
+   };
+   const s3 = new AWS.S3();
+   s3.getObject(params, (err, data) => {
+     if (err) {
+       console.error(err);
+     } else {
+       const imageSrc = `data:image/jpeg;base64,${data.Body.toString('base64')}`;
+       const img = new Image();
+       img.src = imageSrc;
+       img.onload = () => {
        const width = img.naturalWidth;
        const height = img.naturalHeight;
        setImageSources((prevImageSources) => ({
          ...prevImageSources,
-         [imageUrl]: { src: imageSrc, width, height },
+         [key]: { src: imageSrc, width, height },
        }));
        setImages((prevImages) => ({
          ...prevImages,
-         [imageUrl]: width,
+         [key]: width,
        }));
-     };
-   })
-   .catch(err => console.error(err));
-};
+     }}
+   });
+ };
 
 export const fetchImages = async (album, images, setImages, imageSources, setImageSources) => {
   const params = {
@@ -46,10 +48,7 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
      const images = shuffleImages(data.Contents
       .filter(object => object.Key.includes('.'))
       .map(object => object.Key));
-      images.forEach((key) => {
-       const imageUrl = `${CLOUDFRONT_URL}/${key}`;
-       downloadImage(imageUrl, imageSources, setImageSources, images, setImages);
-     });
+     images.forEach((key) => downloadImage(key, imageSources, setImageSources, images, setImages));
    }});
 }
 
