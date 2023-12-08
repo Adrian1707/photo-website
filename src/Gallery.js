@@ -40,13 +40,25 @@ export default function Gallery() {
     return `https://dq17sgdxquuwe.cloudfront.net/${albumName}/hero.jpg`
   }
 
+  const isMobile = () => {
+    return window.matchMedia("only screen and (max-width: 600px)").matches;
+  }
+
+  const loaderSize = () => {
+    if(isMobile()) {
+      return 300
+    } else {
+      return 500
+    }
+  }
+
   return (
     <div>
       <Nav />
       <div className="loader">
         <Oval
-          height={400}
-          width={400}
+          height={loaderSize()}
+          width={loaderSize()}
           color="#4fa94d"
           wrapperStyle={{}}
           wrapperClass=""
