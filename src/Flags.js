@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
 const Flag = React.lazy(() => import('react-world-flags'));
-import Nav from "./Nav";
 import Subnav from "./Subnav";
 
 export default function Flags() {
@@ -39,7 +38,6 @@ export default function Flags() {
 
   return (
     <div>
-      <Nav />
       <div className='flag-page'>
         {
           Object.keys(countries).length > 0 &&

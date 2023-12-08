@@ -93,7 +93,9 @@ const shuffleImages = (array) => {
 
 export const heroImage = (arr, imageSources) => {
   const imgStr = arr.find(element => element.includes("hero"))
-  return imageSources[imgStr] && imageSources[imgStr].src
+  if(imageSources[imgStr]) {
+    return imageSources[imgStr].src
+  }
 }
 
 const isMobile = () => {
