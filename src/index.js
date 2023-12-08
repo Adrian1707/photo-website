@@ -7,28 +7,33 @@ import {
   Link,
 } from "react-router-dom";
 import App from "./App";
-import Gallery from "./Gallery";
-import Map from "./Map";
-import Flags from "./Flags";
+const Albums = React.lazy(() => import("./Albums"))
+const Flags = React.lazy(() => import("./Flags"))
+const Map = React.lazy(() => import("./Map"))
+const Gallery = React.lazy(() => import("./Gallery"))
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
-    children: []
+    children: [
+      {
+        path: "/",
+        element: <Albums />
+      },
+      {
+        path: ':albumName',
+        element: <Gallery />
+      },
+      {
+        path: 'map',
+        element: <Map />
+      },
+      {
+        path: 'flags',
+        element: <Flags />
+      }
+    ]
   },
-  {
-    path: '/:albumName',
-    element: <Gallery />
-  },
-  {
-    path: '/map',
-    element: <Map />
-  },
-  {
-    path: '/flags',
-    element: <Flags />
-  }
 ]);
 
 createRoot(document.getElementById("root")).render(

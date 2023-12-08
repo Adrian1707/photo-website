@@ -3,7 +3,6 @@ const { useEffect, useState } = React
 import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
 import { useParams } from 'react-router-dom';
 import { Oval } from 'react-loader-spinner'
-import Nav from "./Nav";
 
 export default function Gallery() {
   const [images, setImages] = useState({});
@@ -54,7 +53,6 @@ export default function Gallery() {
 
   return (
     <div>
-      <Nav />
       <div className="loader">
         <Oval
           height={loaderSize()}

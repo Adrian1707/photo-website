@@ -1,12 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import MapChart from "./MapChart";
-import Nav from "./Nav";
+const MapChart = React.lazy(() => import("./MapChart"))
 
 export default function Map() {
   return (
     <div>
-      <Nav />
       <MapChart />
     </div>
   )
