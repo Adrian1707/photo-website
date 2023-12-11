@@ -16,7 +16,6 @@ ul {
 }
 
 
-h2,
 h3,
 a {
 	color: #34495e;
@@ -343,6 +342,16 @@ nav {
 	row-gap: 8rem;
 	justify-items: center;
 	padding-top: 50px;
+}
+
+.flag-separator {
+	border-top: 4px dotted;
+	margin-top: 6%;
+}
+
+.favourites-text {
+	margin-left: 5%;
+	color: #D4AF37;
 }
 
 .flag {
