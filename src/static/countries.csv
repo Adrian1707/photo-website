@@ -1,11 +1,16 @@
-ISO3,Name,Visited,Favourite,Ranking
+ISO3,Name,Visited,Favourite
+ZAF,South Africa,y,y
+THA,Thailand,y,y
+JPN,Japan,y,y
+MEX,Mexico,y,y
+ARG,Argentina,y,y
+VNM,Vietnam,y,y
 AFG,Afghanistan,
 ALB,Albania,
 DZA,Algeria,
 AND,Andorra,
 AGO,Angola,
 ATG,Antigua and Barbuda,
-ARG,Argentina,y,y,5
 ARM,Armenia,
 AUS,Australia,
 AUT,Austria,y
@@ -83,7 +88,6 @@ IRL,Ireland,y
 ISR,Israel,y
 ITA,Italy,y
 JAM,Jamaica,
-JPN,Japan,y,y,3
 JOR,Jordan,y
 KAZ,Kazakhstan,
 KEN,Kenya,y
@@ -111,7 +115,6 @@ MLT,Malta,
 MHL,Marshall Islands,
 MRT,Mauritania,
 MUS,Mauritius,
-MEX,Mexico,y,y,4
 FSM,"Micronesia, Federated States of",
 MDA,"Moldova, Republic of",
 MCO,Monaco,
@@ -160,7 +163,6 @@ SVK,Slovakia,
 SVN,Slovenia,
 SLB,Solomon Islands,
 SOM,Somalia,
-ZAF,South Africa,y,y,1
 ESP,Spain,y
 LKA,Sri Lanka,
 SDN,Sudan,y
@@ -172,7 +174,6 @@ SYR,Syrian Arab Republic,
 TWN,Taiwan,y
 TJK,Tajikistan,
 TZA,"Tanzania, United Republic of",y
-THA,Thailand,y,y,2
 TLS,Timor-Leste,
 TGO,Togo,
 TON,Tonga,
@@ -190,7 +191,6 @@ URY,Uruguay,
 UZB,Uzbekistan,
 VUT,Vanuatu,
 VEN,"Venezuela, Bolivarian Republic o",
-VNM,Vietnam,y,y,6
 YEM,Yemen,
 ZMB,Zambia,y
 ZWE,Zimbabwe,y

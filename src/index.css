@@ -282,6 +282,9 @@ nav {
 }
 
 @media screen and (width <= 800px) {
+	.visited-message {
+		padding-top: 46%;
+	}
 	.landingphoto {
 		height: 33vh;
 	}
@@ -332,7 +335,7 @@ nav {
 }
 
 .visited-message {
-	padding-top: 180px;
+	padding-top: 5%;
 	text-align: center;
 }
 
@@ -346,7 +349,7 @@ nav {
 
 .flag-separator {
 	border-top: 4px dotted;
-	margin-top: 6%;
+	margin-top: 9%;
 }
 
 .favourites-text {
