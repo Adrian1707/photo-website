@@ -267,6 +267,14 @@ nav {
 }
 
 @media screen and (width <= 950px) {
+	.visited-message {
+		margin-top: 46%;
+	}
+	.favourites-text {
+		text-align: center;
+		margin-left: 0;
+		padding-right: 8%;
+	}
 	.map {
 		margin-top: 200px;
 	}
@@ -282,9 +290,6 @@ nav {
 }
 
 @media screen and (width <= 800px) {
-	.visited-message {
-		padding-top: 46%;
-	}
 	.landingphoto {
 		height: 33vh;
 	}

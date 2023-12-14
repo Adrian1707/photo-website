@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom';
 const Flag = React.lazy(() => import('react-world-flags'));
+import FlagGallery from './FlagGallery'
 
 export default function Flags() {
   const [countries, setCountries] = useState({});
@@ -48,28 +49,12 @@ export default function Flags() {
       <div className='flag-page'>
         {
           Object.keys(countries).length > 0 &&
-            <div className="visited-message">
-              <h1>{Object.keys(countries).length + Object.keys(favourites).length} Countries</h1>
-            </div>
+          <h1 className="visited-message">{Object.keys(countries).length + Object.keys(favourites).length} Countries</h1>
         }
         <h1 className='favourites-text'>Favourites</h1>
-        <div className="flag-container">
-          {Object.entries(favourites).map(([code, name]) => (
-            <div className="flag">
-              <Flag code={code} height="200" width="350" />
-              <p className="flag-name">{name}</p>
-            </div>
-          ))}
-        </div>
+        <FlagGallery countries={favourites} />
         <hr className="flag-separator"></hr>
-        <div className="flag-container">
-          {Object.entries(countries).map(([code, name]) => (
-            <div className="flag">
-              <Flag code={code} height="200" width="350" />
-              <p className="flag-name">{name}</p>
-            </div>
-          ))}
-        </div>
+        <FlagGallery countries={countries} />
       </div>
 
     </div>
