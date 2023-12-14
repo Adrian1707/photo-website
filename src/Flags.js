@@ -53,6 +53,9 @@ export default function Flags() {
         }
         <h1 className='favourites-text'>Favourites</h1>
         <FlagGallery countries={favourites} />
+        <br/>
+        <br/>
+        <br/>
         <hr className="flag-separator"></hr>
         <FlagGallery countries={countries} />
       </div>
