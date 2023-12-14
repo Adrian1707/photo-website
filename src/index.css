@@ -111,34 +111,6 @@ nav {
 ==================================== */
 
 
-
-
-@media (min-width: 769px) {
-	.header,
-	.main-nav {
-		display: flex;
-	}
-	.header {
-		flex-direction: column;
-		align-items: center;
-    	.header{
-		width: 80%;
-		margin: 0 auto;
-		max-width: 1150px;
-	}
-	}
-
-}
-
-@media (min-width: 1025px) {
-	.header {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-}
-
-
 .hero {
   width: 100%;
 	padding-top: 75px;
@@ -152,13 +124,6 @@ nav {
 	border-radius: 40px;
 	margin-bottom: 20px;
 	padding-top: 20px;
-}
-
-@media screen and (width <= 700px) {
-  .landingphoto {
-    height: 500px;
-		width: 100%;
-  }
 }
 
 .album-photogrid{
@@ -266,6 +231,44 @@ nav {
 	z-index: 2;
 }
 
+.flag-page {
+	background-color: #F1F1F1;
+}
+
+.visited-message {
+	padding-top: 5%;
+	text-align: center;
+}
+
+.flag-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(433px, 1fr));
+	row-gap: 8rem;
+	justify-items: center;
+	padding-top: 50px;
+}
+
+.flag-separator {
+	border-top: 4px dotted;
+	margin-top: 9%;
+}
+
+.favourites-text {
+	margin-left: 5%;
+	color: #D4AF37;
+}
+
+.flag {
+	height: 200px;
+	width: 350px;
+}
+
+.flag-name {
+	font-size: 1.45em;
+	text-align: center;
+}
+
+
 @media screen and (width <= 950px) {
 	.visited-message {
 		margin-top: 46%;
@@ -335,39 +338,41 @@ nav {
 	}
 }
 
-.flag-page {
-	background-color: #F1F1F1;
+
+@media screen and (width <= 700px) {
+  .landingphoto {
+    height: 500px;
+		width: 100%;
+  }
 }
 
-.visited-message {
-	padding-top: 5%;
-	text-align: center;
+@media (min-width: 769px) {
+	.header,
+	.main-nav {
+		display: flex;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+    	.header{
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+	}
+
 }
 
-.flag-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(433px, 1fr));
-	row-gap: 8rem;
-	justify-items: center;
-	padding-top: 50px;
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
 }
 
-.flag-separator {
-	border-top: 4px dotted;
-	margin-top: 9%;
-}
-
-.favourites-text {
-	margin-left: 5%;
-	color: #D4AF37;
-}
-
-.flag {
-	height: 200px;
-	width: 350px;
-}
-
-.flag-name {
-	font-size: 1.45em;
-	text-align: center;
+@media screen and (max-width: 950px) {
+   .flag-separator {
+       margin-top: 26%;
+   }
 }
