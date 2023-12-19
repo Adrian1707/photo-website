@@ -72,7 +72,7 @@ export const listAlbums = async (album) => {
        console.error(err);
        reject(err);
      } else {
-       console.log("LOGGING DATA")
+       console.log("LOGGING DATA.")
        console.log(data)
        resolve(data)
      }
