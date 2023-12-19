@@ -7,15 +7,11 @@ import Loader from './Loader'
 export default function Albums() {
   const { images, imageSources, loading } = useImageState('covers');
 
-  const onLoad = () => {
-    setLoading(false)
-  }
-
   return (
     <div>
       {loading && <Loader />}
       <div className="hero">
-        <a target="_blank" href={getHeroImageUrl('covers')}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl('covers')} /></a>
+        <a target="_blank" href={getHeroImageUrl('covers')}><img className='landingphoto' src={getHeroImageUrl('covers')} /></a>
       </div>
       <div className="album-photogrid">
         {Object.keys(galleryImages(images)).map((key) => (

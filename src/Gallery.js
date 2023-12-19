@@ -17,10 +17,6 @@ export default function Gallery() {
     }
   }
 
-  const onLoad = () => {
-    setLoading(false)
-  }
-
   const imageUrl = (key) => {
     return `${IMAGE_API}/${key}`
   }
@@ -29,7 +25,7 @@ export default function Gallery() {
     <div>
       {loading && <Loader />}
       <div className="hero">
-        <a target="_blank" href={getHeroImageUrl(albumName)}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl(albumName)} /></a>
+        <a target="_blank" href={getHeroImageUrl(albumName)}><img className='landingphoto' src={getHeroImageUrl(albumName)} /></a>
       </div>
       <div className="photogrid">
         {Object.keys(galleryImages(images)).map((key) => (
