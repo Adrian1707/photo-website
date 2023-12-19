@@ -1,7 +1,8 @@
 import * as React from 'react';
 const AWS = require('aws-sdk/global');
 const S3 = require('aws-sdk/clients/s3');
-import { IMAGES_URL } from './ImageURL'
+import { IMAGE_API } from './ImageAPI'
+
 export const fetchImages = async (album) => {
  const params = {
    Bucket: 'adrianboothphotos',
@@ -33,7 +34,7 @@ export const downloadImage = async (imageUrl) => {
   console.log(IMAGES_URL)
   console.log(imageUrl)
  return new Promise((resolve, reject) => {
-   fetch(`${IMAGES_URL}/${imageUrl}`)
+   fetch(`${IMAGE_API}/${imageUrl}`)
      .then(response => response.blob())
      .then(blob => {
        const imageSrc = URL.createObjectURL(blob);
@@ -79,7 +80,7 @@ export const listAlbums = async (album) => {
        console.error(err);
        reject(err);
      } else {
-       console.log("LOGGING DATA")
+       console.log("LOGGING DATA.")
        console.log(data)
        resolve(data)
      }

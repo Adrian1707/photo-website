@@ -3,7 +3,7 @@ const { useEffect, useState } = React
 import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
 import { useParams } from 'react-router-dom';
 import Loader from './Loader'
-import { IMAGES_URL } from './ImageURL'
+import { IMAGE_API } from "./ImageAPI"
 
 export default function Gallery() {
   const [images, setImages] = useState({});
@@ -51,7 +51,7 @@ export default function Gallery() {
   }
 
   const getHeroImageUrl = () => {
-    return `${IMAGES_URL}/${albumName}/hero.jpg`
+    return `${IMAGE_API}/${albumName}/hero.jpg`
   }
 
   const onLoad = () => {
@@ -59,7 +59,7 @@ export default function Gallery() {
   }
 
   const imageUrl = (key) => {
-    return `${IMAGES_URL}/${key}`
+    return `${IMAGE_API}/${key}`
   }
 
   return (

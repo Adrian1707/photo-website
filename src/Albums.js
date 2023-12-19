@@ -1,9 +1,10 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
+import { fetchImages, downloadImage, heroImage, getHeroImageUrl, galleryImages } from "./ImageFetcher";
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
-import { IMAGES_URL } from './ImageURL'
+import { IMAGE_API } from "./ImageAPI"
+
 export default function Albums() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
@@ -39,14 +40,13 @@ export default function Albums() {
     }
   }, [images, imageSources]);
 
+  const getHeroImageUrl = () => {
+    return `${IMAGE_API}/covers/hero.jpeg`
+  }
+  
   const onLoad = () => {
     setLoading(false)
   }
-
-  const getHeroImageUrl = () => {
-    return `${IMAGES_URL}/covers/hero.jpeg`
-  }
-
   return (
     <div>
       {loading && <Loader />}
