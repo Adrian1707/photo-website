@@ -3,6 +3,7 @@ const { useEffect, useState } = React
 import { fetchImages, downloadImage, heroImage, getHeroImageUrl, galleryImages } from "./ImageFetcher";
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
+import { IMAGE_API } from "./ImageAPI"
 
 export default function Albums() {
   const [images, setImages] = useState({});
@@ -27,7 +28,7 @@ export default function Albums() {
   }, [images, imageSources]);
 
   const getHeroImageUrl = () => {
-    return 'https://adrianboothphotos.s3.eu-west-2.amazonaws.com/covers/hero.jpeg'
+    return `${IMAGE_API}/covers/hero.jpeg`
   }
 
   return (

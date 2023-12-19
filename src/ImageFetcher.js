@@ -2,8 +2,7 @@ import * as React from 'react';
 const AWS = require('aws-sdk/global');
 const S3 = require('aws-sdk/clients/s3');
 
-// const CLOUDFRONT_URL = 'https://dq17sgdxquuwe.cloudfront.net'
-const CLOUDFRONT_URL = 'https://adrianboothphotos.s3.eu-west-2.amazonaws.com'
+import { IMAGE_API } from "./ImageAPI"
 
 export const downloadImage = async (imageUrl, imageSources, setImageSources, images, setImages) => {
   fetch(imageUrl)
@@ -48,7 +47,7 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
       .filter(object => object.Key.includes('.'))
       .map(object => object.Key));
       images.forEach((key) => {
-       const imageUrl = `${CLOUDFRONT_URL}/${key}`;
+       const imageUrl = `${IMAGE_API}/${key}`;
        downloadImage(imageUrl, imageSources, setImageSources, images, setImages);
      });
    }});
