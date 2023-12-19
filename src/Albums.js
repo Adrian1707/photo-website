@@ -1,16 +1,11 @@
 import * as React from 'react';
-const { useEffect, useState } = React
 import { galleryImages, getHeroImageUrl } from "./ImageFetcher";
-import useFetchAndSetImages from './useFetchAndSetImages';
+import useImageState from './useImageState';
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
-import { IMAGE_API } from "./ImageAPI"
 
 export default function Albums() {
-  const [images, setImages] = useState({});
-  const [imageSources, setImageSources] = useState({});
-  const [loading, setLoading] = useState(true)
-  useFetchAndSetImages('covers', setImageSources, setImages);
+  const { images, imageSources, loading } = useImageState('covers');
 
   const onLoad = () => {
     setLoading(false)

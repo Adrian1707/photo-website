@@ -1,17 +1,13 @@
 import * as React from 'react';
-const { useEffect, useState } = React
 import { galleryImages, getHeroImageUrl } from "./ImageFetcher";
-import useFetchAndSetImages from './useFetchAndSetImages';
+import useImageState from './useImageState';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader'
 import { IMAGE_API } from "./ImageAPI"
 
 export default function Gallery() {
-  const [images, setImages] = useState({});
-  const [imageSources, setImageSources] = useState({});
-  const [loading, setLoading] = useState(true)
   let { albumName } = useParams();
-  useFetchAndSetImages(albumName, setImageSources, setImages);
+  const { images, imageSources, loading } = useImageState(albumName);
 
   const getImageClassName = (imgData) => {
     if(imgData && imgData.width >= 1900 && imgData.height <= 1700) {

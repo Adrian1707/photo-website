@@ -1,12 +1,17 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchImages, downloadImage } from "./ImageFetcher";
 
-const useFetchAndSetImages = (fetchParam, setImageSources, setImages) => {
+const useImageState = (fetchParam) => {
+  const [images, setImages] = useState({});
+  const [imageSources, setImageSources] = useState({});
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchAndSetImages = async () => {
       try {
-        const images = await fetchImages(fetchParam);
-        const imagePromises = images.map(imageUrl => downloadImage(imageUrl));
+        setLoading(true);
+        const fetchedImages = await fetchImages(fetchParam);
+        const imagePromises = fetchedImages.map(imageUrl => downloadImage(imageUrl));
         const imageData = await Promise.all(imagePromises);
         imageData.forEach(({ imageSrc, imageUrl, imageWidth, imageHeight }) => {
           setImageSources(prevImageSources => ({
@@ -20,10 +25,14 @@ const useFetchAndSetImages = (fetchParam, setImageSources, setImages) => {
         });
       } catch (err) {
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchAndSetImages();
-  }, [fetchParam, setImageSources, setImages]); // dependencies
+  }, [fetchParam]);
+
+  return { images, setImages, imageSources, setImageSources, loading, setLoading };
 };
 
-export default useFetchAndSetImages;
+export default useImageState;
