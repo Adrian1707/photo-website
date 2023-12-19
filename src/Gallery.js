@@ -1,6 +1,7 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
+import { galleryImages } from "./ImageFetcher";
+import useFetchAndSetImages from './useFetchAndSetImages';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader'
 import { IMAGE_API } from "./ImageAPI"
@@ -10,37 +11,7 @@ export default function Gallery() {
   const [imageSources, setImageSources] = useState({});
   const [loading, setLoading] = useState(true)
   let { albumName } = useParams();
-
-  useEffect(() => {
-   const fetchAndSetImages = async () => {
-     try {
-       const images = await fetchImages(albumName);
-       const imagePromises = images.map(imageUrl => downloadImage(imageUrl));
-       const imageData = await Promise.all(imagePromises);
-       imageData.forEach(({ imageSrc, imageUrl, imageWidth, imageHeight }) => {
-         console.log(imageSrc)
-         setImageSources(prevImageSources => ({
-           ...prevImageSources,
-           [imageUrl]: { src: imageSrc, imageWidth, imageHeight }
-         }));
-         setImages(prevImages => ({
-           ...prevImages,
-           [imageUrl]: imageWidth
-         }));
-       });
-     } catch (err) {
-       console.error(err);
-     }
-   };
-   fetchAndSetImages();
-}, []);
-
-  useEffect(() => {
-    const imgStr = Object.keys(images).find(element => element.includes("hero"));
-    if(imageSources[imgStr]) {
-      setLoading(false);
-    }
-  }, [images, imageSources]);
+  useFetchAndSetImages(albumName, setImageSources, setImages);
 
   const getImageClassName = (imgData) => {
     if(imgData && imgData.width >= 1900 && imgData.height <= 1700) {

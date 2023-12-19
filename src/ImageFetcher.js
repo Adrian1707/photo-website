@@ -31,7 +31,6 @@ export const fetchImages = async (album) => {
 }
 
 export const downloadImage = async (imageUrl) => {
-  console.log(imageUrl)
  return new Promise((resolve, reject) => {
    fetch(`${IMAGE_API}/${imageUrl}`)
      .then(response => response.blob())
@@ -75,11 +74,9 @@ export const listAlbums = async (album) => {
   return new Promise((resolve, reject) => {
    s3.listObjectsV2(params, (err, data) => {
      if (err) {
-       console.log("ERRORING")
        console.error(err);
        reject(err);
      } else {
-       console.log("LOGGING DATA.")
        console.log(data)
        resolve(data)
      }
@@ -101,9 +98,6 @@ const shuffleImages = (array) => {
 
 export const heroImage = (arr, imageSources) => {
   const imgStr = arr.find(element => element.includes("hero"))
-  console.log("heroImage")
-  console.log(arr)
-  console.log(imageSources)
   if(imageSources[imgStr]) {
     return imageSources[imgStr].src
   }

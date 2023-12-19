@@ -1,6 +1,7 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { fetchImages, downloadImage, heroImage, getHeroImageUrl, galleryImages } from "./ImageFetcher";
+import { galleryImages } from "./ImageFetcher";
+import useFetchAndSetImages from './useFetchAndSetImages';
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
 import { IMAGE_API } from "./ImageAPI"
@@ -9,39 +10,10 @@ export default function Albums() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
   const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-   const fetchAndSetImages = async () => {
-     try {
-       const images = await fetchImages('covers');
-       const imagePromises = images.map(imageUrl => downloadImage(imageUrl));
-       const imageData = await Promise.all(imagePromises);
-       imageData.forEach(({ imageSrc, imageUrl, imageWidth, imageHeight }) => {
-         setImageSources(prevImageSources => ({
-           ...prevImageSources,
-           [imageUrl]: { src: imageSrc, imageWidth, imageHeight }
-         }));
-         setImages(prevImages => ({
-           ...prevImages,
-           [imageUrl]: imageWidth
-         }));
-       });
-     } catch (err) {
-       console.error(err);
-     }
-   };
-   fetchAndSetImages();
-}, []);
-
-  useEffect(() => {
-    const imgStr = Object.keys(images).find(element => element.includes("hero"));
-    if(imageSources[imgStr]) {
-      setLoading(false);
-    }
-  }, [images, imageSources]);
+  useFetchAndSetImages('covers', setImageSources, setImages);
 
   const getHeroImageUrl = () => {
-    return `${IMAGE_API}/covers/hero.jpeg`
+    return `${IMAGE_API}/covers/hero.jpg`
   }
 
   const onLoad = () => {

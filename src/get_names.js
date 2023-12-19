@@ -1,7 +1,4 @@
 export function extractAndFormatFileName(inputString, foo) {
-  console.log("AAAHH")
-  console.log(inputString)
-  console.log(foo)
   const lastSlashIndex = inputString.lastIndexOf('/');
   const lastDotIndex = inputString.lastIndexOf('.');
 
