@@ -1,6 +1,6 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
+import { fetchImages, downloadImage, heroImage, getHeroImageUrl, galleryImages } from "./ImageFetcher";
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
 
@@ -26,11 +26,15 @@ export default function Albums() {
     }
   }, [images, imageSources]);
 
+  const getHeroImageUrl = () => {
+    return 'https://adrianboothphotos.s3.eu-west-2.amazonaws.com/covers/hero.jpeg'
+  }
+
   return (
     <div>
         {loading && <Loader />}
       <div className="hero">
-        <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
+        <a target="_blank" href={getHeroImageUrl()}><img className='landingphoto' src={heroImage(Object.keys(images), imageSources, setLoading)} /></a>
       </div>
       <div className="album-photogrid">
         {Object.keys(galleryImages(images)).map((key) => (

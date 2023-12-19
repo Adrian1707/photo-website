@@ -36,7 +36,8 @@ export default function Gallery() {
   }
 
   const getHeroImageUrl = () => {
-    return `https://dq17sgdxquuwe.cloudfront.net/${albumName}/hero.jpg`
+    return `https://adrianboothphotos.s3.eu-west-2.amazonaws.com/${albumName}/hero.jpg`
+    // return `https://dq17sgdxquuwe.cloudfront.net/${albumName}/hero.jpg`
   }
 
   return (

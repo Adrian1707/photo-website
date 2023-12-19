@@ -2,7 +2,8 @@ import * as React from 'react';
 const AWS = require('aws-sdk/global');
 const S3 = require('aws-sdk/clients/s3');
 
-const CLOUDFRONT_URL = 'https://dq17sgdxquuwe.cloudfront.net'
+// const CLOUDFRONT_URL = 'https://dq17sgdxquuwe.cloudfront.net'
+const CLOUDFRONT_URL = 'https://adrianboothphotos.s3.eu-west-2.amazonaws.com'
 
 export const downloadImage = async (imageUrl, imageSources, setImageSources, images, setImages) => {
   fetch(imageUrl)
