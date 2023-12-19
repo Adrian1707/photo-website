@@ -96,11 +96,8 @@ const shuffleImages = (array) => {
   }
 };
 
-export const heroImage = (arr, imageSources) => {
-  const imgStr = arr.find(element => element.includes("hero"))
-  if(imageSources[imgStr]) {
-    return imageSources[imgStr].src
-  }
+export const getHeroImageUrl = (albumName) => {
+  return `${IMAGE_API}/${albumName}/hero.jpg`
 }
 
 const isMobile = () => {

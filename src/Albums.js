@@ -1,6 +1,6 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { galleryImages } from "./ImageFetcher";
+import { galleryImages, getHeroImageUrl } from "./ImageFetcher";
 import useFetchAndSetImages from './useFetchAndSetImages';
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
@@ -12,10 +12,6 @@ export default function Albums() {
   const [loading, setLoading] = useState(true)
   useFetchAndSetImages('covers', setImageSources, setImages);
 
-  const getHeroImageUrl = () => {
-    return `${IMAGE_API}/covers/hero.jpg`
-  }
-
   const onLoad = () => {
     setLoading(false)
   }
@@ -24,7 +20,7 @@ export default function Albums() {
     <div>
       {loading && <Loader />}
       <div className="hero">
-        <a target="_blank" href={getHeroImageUrl()}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl()} /></a>
+        <a target="_blank" href={getHeroImageUrl('covers')}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl('covers')} /></a>
       </div>
       <div className="album-photogrid">
         {Object.keys(galleryImages(images)).map((key) => (

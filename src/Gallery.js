@@ -1,6 +1,6 @@
 import * as React from 'react';
 const { useEffect, useState } = React
-import { galleryImages } from "./ImageFetcher";
+import { galleryImages, getHeroImageUrl } from "./ImageFetcher";
 import useFetchAndSetImages from './useFetchAndSetImages';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader'
@@ -21,10 +21,6 @@ export default function Gallery() {
     }
   }
 
-  const getHeroImageUrl = () => {
-    return `${IMAGE_API}/${albumName}/hero.jpg`
-  }
-
   const onLoad = () => {
     setLoading(false)
   }
@@ -37,7 +33,7 @@ export default function Gallery() {
     <div>
       {loading && <Loader />}
       <div className="hero">
-        <a target="_blank" href={getHeroImageUrl()}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl()} /></a>
+        <a target="_blank" href={getHeroImageUrl(albumName)}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl(albumName)} /></a>
       </div>
       <div className="photogrid">
         {Object.keys(galleryImages(images)).map((key) => (
