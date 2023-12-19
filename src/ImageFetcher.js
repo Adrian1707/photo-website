@@ -40,7 +40,7 @@ export const fetchImages = async (album, images, setImages, imageSources, setIma
   const s3 = new AWS.S3();
   s3.listObjectsV2(params, (err, data) => {
    if (err) {
-     console.log("ERRORING")
+     console.log("ERRORING.")
      console.error(err);
    } else {
      const images = shuffleImages(data.Contents
