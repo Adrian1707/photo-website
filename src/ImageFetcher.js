@@ -1,57 +1,65 @@
 import * as React from 'react';
 const AWS = require('aws-sdk/global');
 const S3 = require('aws-sdk/clients/s3');
-
-const CLOUDFRONT_URL = 'https://dq17sgdxquuwe.cloudfront.net'
-
-export const downloadImage = async (imageUrl, imageSources, setImageSources, images, setImages) => {
-  fetch(imageUrl)
-   .then(response => response.blob())
-   .then(blob => {
-     const imageSrc = URL.createObjectURL(blob);
-     const img = new Image();
-     img.src = imageSrc;
-     img.onload = () => {
-       const width = img.naturalWidth;
-       const height = img.naturalHeight;
-       setImageSources((prevImageSources) => ({
-         ...prevImageSources,
-         [imageUrl]: { src: imageSrc, width, height },
-       }));
-       setImages((prevImages) => ({
-         ...prevImages,
-         [imageUrl]: width,
-       }));
-     };
-   })
-   .catch(err => console.error(err));
-};
-
-export const fetchImages = async (album, images, setImages, imageSources, setImageSources) => {
-  const params = {
+import { IMAGES_URL } from './ImageURL'
+export const fetchImages = async (album) => {
+ const params = {
    Bucket: 'adrianboothphotos',
    Prefix: `${album}/`,
-  };
-  AWS.config.update({
+ };
+ AWS.config.update({
    accessKeyId: process.env.ACCESS_KEY_ID,
    secretAccessKey: process.env.SECRET_ACCESS_KEY,
    region: 'eu-west-2',
-  });
-  const s3 = new AWS.S3();
-  s3.listObjectsV2(params, (err, data) => {
-   if (err) {
-     console.log("ERRORING")
-     console.error(err);
-   } else {
-     const images = shuffleImages(data.Contents
-      .filter(object => object.Key.includes('.'))
-      .map(object => object.Key));
-      images.forEach((key) => {
-       const imageUrl = `${CLOUDFRONT_URL}/${key}`;
-       downloadImage(imageUrl, imageSources, setImageSources, images, setImages);
-     });
-   }});
+ });
+ const s3 = new AWS.S3();
+ return new Promise((resolve, reject) => {
+   s3.listObjectsV2(params, (err, data) => {
+     if (err) {
+       console.log("ERRORING")
+       console.error(err);
+       reject(err);
+     } else {
+       const images = shuffleImages(data.Contents
+         .filter(object => object.Key.includes('.'))
+         .map(object => object.Key));
+       resolve(images);
+     }
+   });
+ });
 }
+
+export const downloadImage = async (imageUrl) => {
+  console.log(IMAGES_URL)
+  console.log(imageUrl)
+ return new Promise((resolve, reject) => {
+   fetch(`${IMAGES_URL}/${imageUrl}`)
+     .then(response => response.blob())
+     .then(blob => {
+       const imageSrc = URL.createObjectURL(blob);
+       const img = new Image();
+       img.src = imageSrc;
+       img.onerror = (err) => {
+         console.error(`Error loading image ${imageUrl}:`, err);
+        };
+       img.onload = () => {
+         const width = img.naturalWidth;
+         const height = img.naturalHeight;
+         resolve({
+           imageSrc: imageSrc,
+           imageUrl: imageUrl,
+           imageWidth: width,
+           imageHeight: height
+         });
+       };
+     })
+     .catch(err => {
+       console.error(err);
+       reject(err);
+     });
+ });
+};
+
 
 export const listAlbums = async (album) => {
   const params = {
@@ -93,6 +101,9 @@ const shuffleImages = (array) => {
 
 export const heroImage = (arr, imageSources) => {
   const imgStr = arr.find(element => element.includes("hero"))
+  console.log("heroImage")
+  console.log(arr)
+  console.log(imageSources)
   if(imageSources[imgStr]) {
     return imageSources[imgStr].src
   }

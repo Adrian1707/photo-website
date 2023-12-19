@@ -3,21 +3,34 @@ const { useEffect, useState } = React
 import { fetchImages, downloadImage, heroImage, galleryImages } from "./ImageFetcher";
 import { extractAndFormatFileName, getAlbumName } from './get_names'
 import Loader from './Loader'
-
+import { IMAGES_URL } from './ImageURL'
 export default function Albums() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchImages(
-      'covers',
-      images,
-      setImages,
-      imageSources,
-      setImageSources
-    )
-  }, []);
+   const fetchAndSetImages = async () => {
+     try {
+       const images = await fetchImages('covers');
+       const imagePromises = images.map(imageUrl => downloadImage(imageUrl));
+       const imageData = await Promise.all(imagePromises);
+       imageData.forEach(({ imageSrc, imageUrl, imageWidth, imageHeight }) => {
+         setImageSources(prevImageSources => ({
+           ...prevImageSources,
+           [imageUrl]: { src: imageSrc, imageWidth, imageHeight }
+         }));
+         setImages(prevImages => ({
+           ...prevImages,
+           [imageUrl]: imageWidth
+         }));
+       });
+     } catch (err) {
+       console.error(err);
+     }
+   };
+   fetchAndSetImages();
+}, []);
 
   useEffect(() => {
     const imgStr = Object.keys(images).find(element => element.includes("hero"));
@@ -26,11 +39,19 @@ export default function Albums() {
     }
   }, [images, imageSources]);
 
+  const onLoad = () => {
+    setLoading(false)
+  }
+
+  const getHeroImageUrl = () => {
+    return `${IMAGES_URL}/covers/hero.jpeg`
+  }
+
   return (
     <div>
-        {loading && <Loader />}
+      {loading && <Loader />}
       <div className="hero">
-        <img className='landingphoto' src={heroImage(Object.keys(images), imageSources)}></img>
+        <a target="_blank" href={getHeroImageUrl()}><img onLoad={onLoad} className='landingphoto' src={getHeroImageUrl()} /></a>
       </div>
       <div className="album-photogrid">
         {Object.keys(galleryImages(images)).map((key) => (
