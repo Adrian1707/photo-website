@@ -43,10 +43,11 @@ export default function Albums() {
   const getHeroImageUrl = () => {
     return `${IMAGE_API}/covers/hero.jpeg`
   }
-  
+
   const onLoad = () => {
     setLoading(false)
   }
+
   return (
     <div>
       {loading && <Loader />}

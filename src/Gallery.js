@@ -8,7 +8,7 @@ import { IMAGE_API } from "./ImageAPI"
 export default function Gallery() {
   const [images, setImages] = useState({});
   const [imageSources, setImageSources] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   let { albumName } = useParams();
 
   useEffect(() => {
