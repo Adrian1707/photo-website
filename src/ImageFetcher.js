@@ -30,7 +30,7 @@ export const fetchImages = async (album) => {
  });
 }
 
-export const downloadImage = async (imageUrl) => {
+export const downloadImage = async (imageUrl, setImages, setImageSources) => {
  return new Promise((resolve, reject) => {
    fetch(`${IMAGE_API}/${imageUrl}`)
      .then(response => response.blob())
@@ -42,14 +42,16 @@ export const downloadImage = async (imageUrl) => {
          console.error(`Error loading image ${imageUrl}:`, err);
         };
        img.onload = () => {
-         const width = img.naturalWidth;
-         const height = img.naturalHeight;
-         resolve({
-           imageSrc: imageSrc,
-           imageUrl: imageUrl,
-           imageWidth: width,
-           imageHeight: height
-         });
+         const imageWidth = img.naturalWidth;
+         const imageHeight = img.naturalHeight;
+         setImageSources(prevImageSources => ({
+           ...prevImageSources,
+           [imageUrl]: { src: imageSrc, imageWidth, imageHeight }
+         }));
+         setImages(prevImages => ({
+           ...prevImages,
+           [imageUrl]: imageWidth
+         }));
        };
      })
      .catch(err => {

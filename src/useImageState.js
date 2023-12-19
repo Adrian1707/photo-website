@@ -11,18 +11,7 @@ const useImageState = (fetchParam) => {
       try {
         setLoading(true);
         const fetchedImages = await fetchImages(fetchParam);
-        const imagePromises = fetchedImages.map(imageUrl => downloadImage(imageUrl));
-        const imageData = await Promise.all(imagePromises);
-        imageData.forEach(({ imageSrc, imageUrl, imageWidth, imageHeight }) => {
-          setImageSources(prevImageSources => ({
-            ...prevImageSources,
-            [imageUrl]: { src: imageSrc, imageWidth, imageHeight }
-          }));
-          setImages(prevImages => ({
-            ...prevImages,
-            [imageUrl]: imageWidth
-          }));
-        });
+        fetchedImages.map(imageUrl => downloadImage(imageUrl, setImages, setImageSources));
       } catch (err) {
         console.error(err);
       } finally {
