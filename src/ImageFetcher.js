@@ -31,7 +31,6 @@ export const fetchImages = async (album) => {
 }
 
 export const downloadImage = async (imageUrl) => {
-  console.log(IMAGES_URL)
   console.log(imageUrl)
  return new Promise((resolve, reject) => {
    fetch(`${IMAGE_API}/${imageUrl}`)
