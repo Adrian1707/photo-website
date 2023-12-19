@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { galleryImages, getHeroImageUrl } from "./ImageFetcher";
+import { galleryImages } from "./ImageFetcher";
 import useImageState from './useImageState';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader'
+import HeroImage from './HeroImage'
 import { IMAGE_API } from "./ImageAPI"
 
 export default function Gallery() {
@@ -24,9 +25,7 @@ export default function Gallery() {
   return (
     <div>
       {loading && <Loader />}
-      <div className="hero">
-        <a target="_blank" href={getHeroImageUrl(albumName)}><img className='landingphoto' src={getHeroImageUrl(albumName)} /></a>
-      </div>
+      <HeroImage albumName={albumName} />
       <div className="photogrid">
         {Object.keys(galleryImages(images)).map((key) => (
           <div className={getImageClassName(imageSources[key])}>
