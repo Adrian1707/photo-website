@@ -21,12 +21,13 @@ const colorScale = scaleLinear()
 
 const MapChart = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [shouldNavigate, setShouldNavigate] = useState(null);
+  const [countryListData, setCountryListData] = useState([]);
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
     csv(`/countries.csv`).then((data) => {
-      setData(data);
+      setCountryListData(data);
     });
     const getAlbums = async () => {
       const data = await listAlbums("covers");
@@ -41,18 +42,25 @@ const MapChart = () => {
     getAlbums()
   }, []);
 
+   useEffect(() => {
+     if (shouldNavigate !== null) {
+       navigate(`/${shouldNavigate}`);
+       setShouldNavigate(null);
+     }
+   }, [shouldNavigate, navigate]);
+
   const handleHover = (d, geo) => {
     let countryName = d.Name.toLowerCase()
   }
 
   const handleClick = (name) => {
-    let countryName = name.toLowerCase()
-    if(!countryHasAlbum(countryName)){
-      alert("Country has no photo album yet")
-      return undefined
-    }
-    navigate(`/${countryName}`);
-  }
+     let countryName = name.toLowerCase();
+     if(!countryHasAlbum(countryName)){
+       alert("Country has no photo album yet");
+       return;
+     }
+     setShouldNavigate(countryName);
+   }
 
   const countryHasAlbum = (countryName) => {
     return albums.includes(countryName)
@@ -81,11 +89,11 @@ const MapChart = () => {
       >
         <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
         <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
-        {data.length > 0 && (
+        {countryListData.length > 0 && (
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                const d = data.find((s) => s.ISO3 === geo.id);
+                const d = countryListData.find((s) => s.ISO3 === geo.id);
                 let visited = d && d.Visited.toLowerCase() == "y"
                 let countryName = d && d.Name.toLowerCase()
                 let cursor = countryHasAlbum(countryName) ? "pointer" : "no-drop"
@@ -118,7 +126,7 @@ const MapChart = () => {
             }
           </Geographies>
         )}
-        {data.length > 0 && markers().map((marker, index) => {
+        {countryListData.length > 0 && markers().map((marker, index) => {
            return (
              <Marker key={index} coordinates={marker.coordinates} fill="#000">
                <text style={{fontWeight: 'bold'}} textAnchor="middle" fill={marker.color || "#181818"} fontSize={marker.size}>
