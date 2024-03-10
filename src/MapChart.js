@@ -67,6 +67,8 @@ const MapChart = () => {
   }
 
   const countryColour = (visited, countryName) => {
+    return "#5d954a"
+
     if(visited && countryHasAlbum(countryName)) {
       return "#5d954a"
     } else if (visited) {

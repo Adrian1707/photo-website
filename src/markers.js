@@ -72,9 +72,7 @@ const markers = () => {
   {text: 'Thailand', coordinates: [101, 15], size: '6'},
   {text: 'Vietnam', coordinates: [111, 10], size: '6'},
   {text: 'South Korea', coordinates: [128, 36], size: '6'},
-  {text: 'Belarus', coordinates: [28, 53], size: '6'},
-  {text: 'Visited and has album', coordinates: [-130, -10], size: '15', color: "#5d954a"},
-  {text: 'Visited, no album', coordinates: [-130, -20], size: '15', color: "#c5efb7"}
+  {text: 'Belarus', coordinates: [28, 53], size: '6'}
 ]
 
 
